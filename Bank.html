@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <style>
+            label{
+                text-align: center;
+                font-size: medium;
+            }
+            input[type=text]{
+                background-color: burlywood;
+                text-align: center;
+                font-size: medium;
+            }
+            input[type=number]{
+                background-color: burlywood;
+                text-align: center;
+                font-size: medium;
+            }
+            button{
+                background-color:goldenrod;
+                text-align: center;
+                font-size: medium;
+            }
+            .abc{
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+                padding: auto;
+            }
+            .xyz{
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+                padding: auto;
+            }
+        </style>
+        <script>
+            var num =0;
+            var object = [];
+            
+            
+            function retriveData(){
+                var element1 = document.getElementById("txt1");
+                var element2 = document.getElementById("txt2");                
+                var element3 = document.getElementById("txt3");
+                //var output1=document.getElementById("msg1");
+                //output1.innerHTML="Account Number:\t"+ temp.Account_Number + "\tBank Name:\t"+ temp.Bank_Name + "\tAccount Balance:\t"+ temp.Account_Balance;
+                
+                var temp={order:num,Account_Number:element1.value,Bank_Name:element2.value,Account_Balance:element3.value};
+                num++;
+                object.push(temp);
+                //displayArray();
+
+                var output2=document.getElementById("datatable");
+                var output1=document.getElementById("datatable");
+                output1.innerHTML=output2.innerHTML="<tr><th class='xyz'>Sr.No.</th>"+"<th class='xyz'>Account Number</th>"+ "<th class='abc'>Bank Name</th>" + "<th class='abc'>Account Balance</th></tr>";
+                for(let i=0; i<object.length; i++){
+                    output2.innerHTML+=//"<tr><th class='xyz'>Sr.No.</th>"+"<th class='xyz'>Account Number</th>"+ "<th class='abc'>Bank Name</th>" + "<th class='abc'>Account Balance</th></tr>"+
+                                      "<tr><td class='abc'>"+ object[i].order+"<td class='abc'>"+ object[i].Account_Number+"</td>" +"<td class='abc'>"+ object[i].Bank_Name +"</td>" + "<td class='abc'>"+ object[i].Account_Balance +"</td>";
+                }
+                //output2.innerHTML="<tr><th class='xyz'>Account Number</th>"+ "<th class='abc'>Bank Name</th>" + "<th class='abc'>Account Balance</th></tr>"+
+                                    //"<tr><td class='abc'>"+ element1.value +"</td>"+ "<td class='abc'>"+ element2.value +"</td>" + "<td class='abc'>"+ element3.value +"</td></tr>";
+                
+            }
+            
+            
+        </script>
+    </head>
+    <body>
+        <div style="border:black; border-width:5px; border-style:solid;text-align: center;">
+            <h2 style="color:goldenrod;">Welcome To Bank Details</h2>
+            <label>Enter Bank Account No:</label>
+            <input type="text" id="txt1" placeholder="Enter Account No."/>
+            <br>
+            <br>
+            <label>Enter Bank Name:</label>
+            <input type="text" id="txt2" placeholder="Enter Bank Name"/>
+            <br>
+            <br>
+            <label>Enter Account Balance:</label>
+            <input type="number" id="txt3" placeholder="Enter Account Balance"/>
+            <br>
+            <br>
+            <button onclick="retriveData()">Submit</button>
+            <br>
+            <br>
+        </div>
+        <div style="border:black; border-width:5px; border-style:solid;padding-bottom: 100px;">
+            <div id="msg1" style="text-align: center;"></div>
+            <table id="datatable">
+
+            </table>
+        </div>
+    </body>
+</html>
